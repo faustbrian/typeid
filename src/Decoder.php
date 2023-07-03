@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace BombenProdukt\TypeId;
 
 use Ramsey\Uuid\Uuid;
-use TypeError;
 
 final readonly class Decoder
 {
@@ -13,17 +12,21 @@ final readonly class Decoder
     {
         if (\str_contains($id, '_')) {
             [$type, $uuid] = \explode('_', $id, 2);
+
+            if ($type === '') {
+                throw TypeIdException::empty($id);
+            }
         } else {
             $type = '';
             $uuid = $id;
         }
 
         if (!PrefixValidator::validate($type)) {
-            throw new TypeError("Invalid prefix: '{$type}'. Prefix should match [a-z]+");
+            throw PrefixException::invalid($type);
         }
 
         if (!SuffixValidator::validate($uuid)) {
-            throw new TypeError('Invalid suffix');
+            throw SuffixException::invalid($uuid);
         }
 
         return new Decoded(

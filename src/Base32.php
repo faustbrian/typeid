@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace BombenProdukt\TypeId;
 
-use Exception;
-
 final class Base32
 {
     private const ALPHABET = '0123456789abcdefghjkmnpqrstvwxyz';
@@ -45,7 +43,7 @@ final class Base32
         $dst = \array_fill(0, 26, '');
 
         if (\count($src) !== 16) {
-            throw new Exception('Invalid length');
+            throw new TypeIdException('Invalid length');
         }
 
         // 10 byte timestamp
@@ -84,7 +82,7 @@ final class Base32
     public static function decode(string $s): array
     {
         if (\mb_strlen($s) !== 26) {
-            throw new Exception('Invalid length');
+            throw new TypeIdException('Invalid length');
         }
         // Convert string to an array of ASCII values
         $v = \array_map('ord', \mb_str_split($s));
@@ -92,7 +90,7 @@ final class Base32
         // Check if all the characters are part of the expected character set.
         foreach ($v as $value) {
             if (self::DECIMAL_TABLE[$value] === 0xFF) {
-                throw new Exception('Invalid base32 character');
+                throw new TypeIdException('Invalid base32 character');
             }
         }
 

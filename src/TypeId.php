@@ -6,7 +6,6 @@ namespace BombenProdukt\TypeId;
 
 use JsonSerializable;
 use Stringable;
-use TypeError;
 
 final class TypeId implements JsonSerializable, Stringable
 {
@@ -30,7 +29,7 @@ final class TypeId implements JsonSerializable, Stringable
             return new self($prefix, Uuid::random()->toBase32());
         }
 
-        throw new TypeError("Invalid prefix: '{$prefix}'. Prefix should match [a-z]+");
+        throw PrefixException::invalid($prefix);
     }
 
     public static function fromUuid(string $prefix, string $suffix): self
@@ -39,7 +38,7 @@ final class TypeId implements JsonSerializable, Stringable
             return new self($prefix, Uuid::fromString($suffix)->toBase32());
         }
 
-        throw new TypeError("Invalid prefix: '{$prefix}'. Prefix should match [a-z]+");
+        throw PrefixException::invalid($prefix);
     }
 
     public function getPrefix(): string

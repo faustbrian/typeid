@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace BombenProdukt\TypeId;
 
 use Exception;
-use TypeError;
 
 final class SuffixValidator
 {
     public static function validate(string $suffix): bool
     {
         if (\preg_match('/[A-Z]/', $suffix)) {
-            throw new TypeError("Invalid suffix: {$suffix}");
+            throw SuffixException::invalid($suffix);
         }
 
         try {
@@ -20,7 +19,7 @@ final class SuffixValidator
 
             return true;
         } catch (Exception) {
-            throw new TypeError("Invalid suffix: {$suffix}");
+            throw SuffixException::invalid($suffix);
         }
     }
 }
