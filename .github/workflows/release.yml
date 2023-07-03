@@ -1,0 +1,28 @@
+name: "Release"
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Install
+        run: wget -c https://github.com/git-chglog/git-chglog/releases/download/v0.15.4/git-chglog_0.15.4_linux_amd64.tar.gz -O - | tar -xz
+
+      - name: Execute
+        run: ./git-chglog -o CHANGELOG.md
+
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: "RELEASE: Update changelog"
+          file_pattern: CHANGELOG.md

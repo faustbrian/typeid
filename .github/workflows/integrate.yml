@@ -1,0 +1,94 @@
+name: "Integrate"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  coding-standards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Prepare
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest
+          coverage: none
+
+      - name: Install
+        uses: ramsey/composer-install@v2
+
+      - name: Execute
+        run: composer format
+
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: resolve style guide violations"
+  security-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Prepare
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest
+          coverage: none
+
+      - name: Install
+        uses: ramsey/composer-install@v2
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
+
+      - name: Check installed packages for security vulnerability advisories
+        run: composer audit --ansi
+  static-code-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Prepare
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest
+          coverage: none
+
+      - name: Install
+        uses: ramsey/composer-install@v2
+
+      - name: Execute
+        run: ./vendor/bin/phpstan --error-format=github
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Prepare
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          coverage: none
+
+      - name: Install
+        uses: ramsey/composer-install@v2
+
+      - name: Execute
+        run: composer test
