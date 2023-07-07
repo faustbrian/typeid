@@ -10,4 +10,9 @@ final class SuffixException extends AbstractTypeIdException
     {
         throw new self("Invalid suffix: {$suffix}");
     }
+
+    public static function invalidFirstCharacter(string $suffix): self
+    {
+        throw new self("Invalid suffix: {$suffix}: First character must be in the range [0-7]");
+    }
 }

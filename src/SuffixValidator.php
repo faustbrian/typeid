@@ -17,6 +17,12 @@ final class SuffixValidator
         try {
             Base32::decode($suffix);
 
+            $firstCharacter = (int) \mb_substr($suffix[0], 0, 1);
+
+            if ($firstCharacter < 0 || $firstCharacter > 7) {
+                throw SuffixException::invalidFirstCharacter($suffix);
+            }
+
             return true;
         } catch (Exception) {
             throw SuffixException::invalid($suffix);
