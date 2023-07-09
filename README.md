@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/BombenProdukt/typeid/actions">
+    <a href="https://github.com/faustbrian/typeid/actions">
         <img src="https://badge.sh/github/check-runs/BombenProdukt/typeid" alt="Checks" />
     </a>
     <a href="https://packagist.org/packages/bombenprodukt/typeid">
@@ -21,7 +21,7 @@
 
 ## About typeid
 
-This project was created by, and is maintained by [BombenProdukt](https://github.com/BombenProdukt), and is an implementation of the [Official TypeID-JS Package](https://github.com/jetpack-io/typeid-js) for PHP. Be sure to browse through the [changelog](CHANGELOG.md), [code of conduct](.github/CODE_OF_CONDUCT.md), [contribution guidelines](.github/CONTRIBUTING.md), [license](LICENSE), and [security policy](.github/SECURITY.md).
+This project was created by, and is maintained by [Brian Faust](https://github.com/faustbrian), and is an implementation of the [Official TypeID-JS Package](https://github.com/jetpack-io/typeid-js) for PHP. Be sure to browse through the [changelog](CHANGELOG.md), [code of conduct](.github/CODE_OF_CONDUCT.md), [contribution guidelines](.github/CONTRIBUTING.md), [license](LICENSE), and [security policy](.github/SECURITY.md).
 
 ## Installation
 
