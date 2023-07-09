@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://bombenprodukt.com" target="_blank">
-        <img src="https://raw.githubusercontent.com/BombenProdukt/assets/main/logo-text.svg" width="128" alt="BombenProdukt Logo" />
+        <img src="https://raw.githubusercontent.com/faustbrian/assets/main/logo-text.svg" width="128" alt="BombenProdukt Logo" />
     </a>
 </p>
 
