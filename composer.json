@@ -14,7 +14,7 @@
 			"role": "Developer"
 		}
 	],
-	"homepage": "https://github.com/BombenProdukt/typeid",
+	"homepage": "https://github.com/faustbrian/typeid",
 	"require": {
 		"php": "^8.2",
 		"bombenprodukt/laravel-package-powerpack": "^1.0",
