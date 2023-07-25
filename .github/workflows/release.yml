@@ -1,4 +1,4 @@
-name: "Release"
+name: 'Release'
 
 on:
   release:
@@ -7,6 +7,8 @@ on:
 jobs:
   generate-changelog:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Clone
         uses: actions/checkout@v3
@@ -24,5 +26,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: main
-          commit_message: "RELEASE: Update changelog"
+          commit_message: 'RELEASE: Update changelog'
           file_pattern: CHANGELOG.md
