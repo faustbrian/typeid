@@ -21,8 +21,10 @@
 	},
 	"require-dev": {
 		"bombenprodukt/php-cs-fixer-config": "^1.0",
+		"ergebnis/composer-normalize": "^2.35",
 		"friendsofphp/php-cs-fixer": "^3.15",
 		"pestphp/pest": "^2.0",
+		"pestphp/pest-plugin-watch": "^2.0",
 		"phpstan/extension-installer": "^1.1",
 		"phpstan/phpstan-deprecation-rules": "^1.0",
 		"phpstan/phpstan-phpunit": "^1.0",
