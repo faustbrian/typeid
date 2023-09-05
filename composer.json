@@ -16,11 +16,10 @@
 	],
 	"homepage": "https://github.com/faustbrian/typeid",
 	"require": {
-		"php": "^8.2",
+		"php": "^8.1",
 		"ramsey/uuid": "^4.7"
 	},
 	"require-dev": {
-		"bombenprodukt/php-cs-fixer-config": "^1.0",
 		"ergebnis/composer-normalize": "^2.35",
 		"friendsofphp/php-cs-fixer": "^3.15",
 		"pestphp/pest": "^2.0",

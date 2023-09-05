@@ -6,7 +6,7 @@ namespace BombenProdukt\TypeId;
 
 use Ramsey\Uuid\Uuid;
 
-final readonly class Decoder
+final class Decoder
 {
     public static function decode(string $id): Decoded
     {

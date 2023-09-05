@@ -7,7 +7,7 @@ namespace BombenProdukt\TypeId;
 use Ramsey\Uuid\Uuid as Ramsey;
 use Ramsey\Uuid\UuidInterface;
 
-final readonly class Uuid
+final class Uuid
 {
     public function __construct(private string $uuid) {}
 
