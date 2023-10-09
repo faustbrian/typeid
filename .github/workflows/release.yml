@@ -23,7 +23,7 @@ jobs:
         run: ./git-chglog -o CHANGELOG.md
 
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: main
           commit_message: 'RELEASE: Update changelog'
