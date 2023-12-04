@@ -29,7 +29,7 @@
 		"phpstan/phpstan-deprecation-rules": "^1.0",
 		"phpstan/phpstan-phpunit": "^1.0",
 		"phpstan/phpstan-strict-rules": "^1.5",
-		"symfony/yaml": "^6.3"
+		"symfony/yaml": "^7.0"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
